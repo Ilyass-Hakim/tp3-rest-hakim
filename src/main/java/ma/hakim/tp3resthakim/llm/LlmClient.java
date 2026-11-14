@@ -3,6 +3,7 @@ package ma.hakim.tp3resthakim.llm;
 import dev.langchain4j.memory.ChatMemory;
 import dev.langchain4j.memory.chat.MessageWindowChatMemory;
 import dev.langchain4j.model.chat.ChatModel;
+import dev.langchain4j.model.chat.request.ResponseFormat;
 import dev.langchain4j.model.google.genai.GoogleGenAiChatModel;
 import dev.langchain4j.service.AiServices;
 import jakarta.enterprise.context.Dependent;
@@ -21,6 +22,7 @@ public class LlmClient implements Serializable {
         ChatModel model = GoogleGenAiChatModel.builder()
                 .apiKey(cle)
                 .modelName("gemini-3.5-flash-lite")
+                .responseFormat(ResponseFormat.JSON)
                 .build();
 
         this.chatMemory = MessageWindowChatMemory.withMaxMessages(20);

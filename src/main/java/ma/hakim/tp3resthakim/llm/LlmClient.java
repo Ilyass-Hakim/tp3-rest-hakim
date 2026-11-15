@@ -32,7 +32,7 @@ public class LlmClient implements Serializable {
                 .build();
     }
 
-    public String envoyerRequete(String question) {
-        return this.guide.chat(question);
+    public String envoyerRequete(String question, int nb) {
+        return this.guide.chat(question, nb);
     }
 }
